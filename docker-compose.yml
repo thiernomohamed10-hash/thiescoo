@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  # MongoDB Database
+  mongodb:
+    image: mongo:6.0
+    container_name: thiescoo-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password123
+      MONGO_INITDB_DATABASE: thiescoo
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - thiescoo-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: thiescoo-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - thiescoo-network
+
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: thiescoo-backend
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      MONGODB_URI: mongodb://admin:password123@mongodb:27017/thiescoo?authSource=admin
+      REDIS_URL: redis://redis:6379
+      JWT_SECRET: your_jwt_secret_key
+      PORT: 3000
+    depends_on:
+      - mongodb
+      - redis
+    networks:
+      - thiescoo-network
+    restart: unless-stopped
+
+  # ML Server
+  ml-server:
+    build:
+      context: ./ml-models
+      dockerfile: Dockerfile
+    container_name: thiescoo-ml
+    ports:
+      - "5000:5000"
+    environment:
+      FLASK_ENV: production
+    networks:
+      - thiescoo-network
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+
+networks:
+  thiescoo-network:
+    driver: bridge
