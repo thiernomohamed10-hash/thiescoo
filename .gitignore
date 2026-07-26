@@ -1,0 +1,83 @@
+# Dart/Flutter/Kotlin/iOS
+.dart_tool/
+.flutter-plugins
+.packages
+.pub-cache/
+.pub/
+/build/
+ios/.symlinks/
+ios/.generated/
+os/.objs/
+os/.dart_tool/
+os/Flutter/Flutter.podspec
+os/Flutter/Flutter.framework
+os/Flutter/Flutter.modulemap
+os/Flutter/GeneratedPluginRegistrant.dart
+os/Flutter/GeneratedPluginRegistrant.m
+os/Flutter/ephemeral/
+os/Flutter/app.flx
+os/Flutter/app.zip
+os/Flutter/flutter_assets/
+os/Flutter/flutter_export_environment.sh
+os/ServiceDefinitions.json
+os/Runner.xcodeproj/project.pbxproj
+os/Runner.xcworkspace/contents.xcworkspacedata
+os/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+os/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+os/Podfile
+os/Podfile.lock
+os/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+os/Runner/GoogleService-Info.plist
+
+# Android
+.gradle/
+.android/
+build/
+*.apk
+*.aab
+*.jks
+*.keystore
+android/local.properties
+android/app/google-services.json
+android/.gradle/
+android/build/
+android/app/build/
+
+# Backend Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+.env.local
+dist/
+build/
+*.log
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+.project
+.classpath
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+.env
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+*.json
+
+# OS
+.DS_Store
+Thumbs.db
