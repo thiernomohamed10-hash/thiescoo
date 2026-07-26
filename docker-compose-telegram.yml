@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # ... existing services ...
+
+  # Telegram Bot
+  telegram-bot:
+    build:
+      context: ./telegram-bot
+      dockerfile: Dockerfile
+    container_name: thiescoo-telegram-bot
+    environment:
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      MONGODB_URI: mongodb://admin:password123@mongodb:27017/thiescoo?authSource=admin
+      API_BASE_URL: http://backend:3000/api
+      TELEGRAM_BOT_PORT: 8080
+      NODE_ENV: production
+    depends_on:
+      - mongodb
+      - backend
+    networks:
+      - thiescoo-network
+    restart: unless-stopped
+
+networks:
+  thiescoo-network:
+    driver: bridge
