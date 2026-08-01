@@ -1,0 +1,25 @@
+# Railway Template Configuration
+# This file helps Railway understand how to deploy your project
+
+# Build configuration
+build:
+  builder: nixpacks
+  buildCommand: npm install && npm run build 2>/dev/null || true
+
+# Start configuration  
+start:
+  cmd: npm start
+
+# Environment variables (set these in Railway dashboard)
+env:
+  NODE_ENV: production
+  PORT: $PORT
+  MONGODB_URI: $MONGODB_URI
+  JWT_SECRET: $JWT_SECRET
+  TELEGRAM_BOT_TOKEN: $TELEGRAM_BOT_TOKEN
+  API_URL: $RAILWAY_STATIC_URL
+
+# Health check
+health:
+  path: /health
+  interval: 30

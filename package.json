@@ -1,0 +1,20 @@
+{
+  "name": "thiescoo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Thiescoo - AI-Powered Trading Platform",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "build": "cd backend && npm run build",
+    "test": "cd backend && npm test",
+    "bot": "cd telegram-bot && npm start",
+    "ml": "cd ml-models && python app.py"
+  },
+  "engines": {
+    "node": "18.x",
+    "npm": "9.x"
+  }
+}
