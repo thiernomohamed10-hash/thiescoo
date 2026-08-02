@@ -1,25 +1,15 @@
-# Railway Template Configuration
-# This file helps Railway understand how to deploy your project
+# Railway Configuration
+# https://docs.railway.app/deploy/config-as-code
 
 # Build configuration
-build:
-  builder: nixpacks
-  buildCommand: npm install && npm run build 2>/dev/null || true
+[build]
+builder = "nixpacks"
 
 # Start configuration  
-start:
-  cmd: npm start
+[start]
+cmd = "cd backend && npm start"
 
 # Environment variables (set these in Railway dashboard)
-env:
-  NODE_ENV: production
-  PORT: $PORT
-  MONGODB_URI: $MONGODB_URI
-  JWT_SECRET: $JWT_SECRET
-  TELEGRAM_BOT_TOKEN: $TELEGRAM_BOT_TOKEN
-  API_URL: $RAILWAY_STATIC_URL
-
-# Health check
-health:
-  path: /health
-  interval: 30
+[env]
+NODE_ENV = "production"
+PORT = "$PORT"
