@@ -1,3 +1,2 @@
-web: npm start
-bot: npm run bot
-ml: npm run ml
+web: cd backend && npm start
+bot: cd telegram-bot && npm start
