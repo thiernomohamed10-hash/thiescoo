@@ -1,2 +1,2 @@
-web: cd backend && npm start
-bot: cd telegram-bot && npm start
+web: cd backend && npm install && npm start
+bot: cd telegram-bot && npm install && npm start
